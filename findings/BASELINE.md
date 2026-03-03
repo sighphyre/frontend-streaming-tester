@@ -55,6 +55,13 @@ Default buffers: 64 KB
 
 Max buffers: 256–512 KB
 
+This can be done via systemctl:
+
+``` sh
+sudo sysctl -w net.ipv4.tcp_rmem="4096 65536 262144"
+sudo sysctl -w net.ipv4.tcp_wmem="4096 65536 262144"
+```
+
 Under such configuration, per-connection memory may drop to approximately 40–100 KB, depending on traffic patterns.
 
 At ~40 KB per connection:
